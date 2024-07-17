@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERTEMUAN 14</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('_1f531dac-e6ce-48de-9df9-12da734cb5c2.jpeg'); /* Ganti dengan path gambar latar belakang yang sesuai */
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .header {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        .channel-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-image: url('https://freeimage.host/i/dC3L5L7'); /* Ganti dengan path gambar logo channel yang sesuai */
+            background-size: cover;
+            margin-right: 10px;
+        }
+        .channel-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .video-container {
+            position: relative; /* Untuk posisi relatif agar view count bisa diatur di atas iframe */
+            width: 800px;
+            margin: 20px auto;
+            background-color: #000;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        .video-info {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            color: #ffffff;
+        }
+        .video-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .video-description {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .view-count {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 10px;
+        }
+        .end-box {
+            background-color: #000;
+            border: 3px solid #ffd700;
+            color: #ffffff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: calc(100% - 40px);
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .end-box p {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="channel-logo"></div>
+        <div class="channel-name">TUPAI MINI</div>
+    </div>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/6q3As7VHjhI" frameborder="0" allowfullscreen></iframe>
+        <div class="video-info">
+            <div class="video-title">Pertemuan 14 #WINDOWS2003 </div>
+            <div class="video-description">
+              Video tentang Windows 2003 membahas berbagai fitur dan konfigurasi sistem operasi klasik ini untuk memahami penggunaan dan administrasi yang efektif.
+            </div>
+            <div class="view-count" id="viewCount">0 x ditonton</div>
+        </div>
+    </div>
+
+    <div class="end-box">
+        <p>Terima kasih sudah berkunjung, semoga bermanfaat!</p>
+    </div>
+
+    <script>
+        // JavaScript untuk animasi penonton bertambah dengan kecepatan sedang
+        var viewCountElement = document.getElementById('viewCount');
+        var currentViewCount = 0;
+        var targetViewCount = 1000900900; // Jumlah view yang ingin dicapai
+        
+        function animateViewCount() {
+            setTimeout(function() {
+                currentViewCount += Math.floor(Math.random() * 1000000); // Menambahkan jumlah view secara acak antara 0 - 999,999
+                if (currentViewCount > targetViewCount) {
+                    currentViewCount = targetViewCount;
+                }
+                viewCountElement.textContent = currentViewCount.toLocaleString() + ' x ditonton';
+                if (currentViewCount < targetViewCount) {
+                    animateViewCount(); // Memanggil kembali fungsi untuk animasi
+                }
+            }, 300); // Interval 300ms (0.3 detik)
+        }
+
+        animateViewCount(); // Memulai animasi
+    </script>
+
+</body>
+</html>
